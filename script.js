@@ -16,7 +16,7 @@ const CONFIG = {
 };
 
 const CATALOG = {
-    'Lsd': { name: "Lsd", category: "Droga", price: { min: 100, max: 130 }, weight: 0.15, cost: 0, recipe: [4, 4, 4], baseYield: 4, lsdPerZiplock: 5, ziplockNeeded: 5, buffer: 2 }
+    'Lsd': { name: "Lsd", category: "Droga", price: { min: 150, max: 180 }, weight: 0.15, cost: 0, recipe: [4, 4, 4], baseYield: 4, lsdPerZiplock: 5, ziplockNeeded: 5, buffer: 2 }
 };
 
 /**
