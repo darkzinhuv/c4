@@ -16,7 +16,7 @@ const CONFIG = {
 };
 
 const CATALOG = {
-    'Meta': { name: "Meta", category: "Droga", price: { min: 100, max: 130 }, weight: 0.15, cost: 0, recipe: [4, 4, 4], baseYield: 4, metaPerZiplock: 5, ziplockNeeded: 5, buffer: 2 }
+    'Lsd': { name: "Lsd", category: "Droga", price: { min: 100, max: 130 }, weight: 0.15, cost: 0, recipe: [4, 4, 4], baseYield: 4, lsdPerZiplock: 5, ziplockNeeded: 5, buffer: 2 }
 };
 
 /**
@@ -293,13 +293,13 @@ const app = {
         if (this.state.cart.length === 0) return this.showToast('Carrinho vazio!', 'error');
         
         let totals = [0, 0, 0], totalMatWeight = 0, totalProdWeight = 0, detailsHTML = "";
-        const FIXO = { materialsPerBatch: 4, crystalsPerBatch: 4, crystalsPerProcess: 5, ziplockPerProcess: 5, metaPerProcess: 10, buffer: 2 };
+        const FIXO = { materialsPerBatch: 4, crystalsPerBatch: 4, crystalsPerProcess: 5, ziplockPerProcess: 5, lsdPerProcess: 10, buffer: 2 };
 
         this.state.cart.forEach(item => {
             const sellQtd = item.qtd;
             const matPerBatch = item.recipe[0];
             
-            const processes = Math.ceil(sellQtd / FIXO.metaPerProcess);
+            const processes = Math.ceil(sellQtd / FIXO.lsdPerProcess);
             const crystals = processes * FIXO.crystalsPerProcess + FIXO.buffer;
             const matBatches = Math.ceil(crystals / FIXO.crystalsPerBatch);
             
@@ -317,7 +317,7 @@ const app = {
             totalProdWeight += sellQtd * item.weight;
             
             const crystalsProduced = matBatches * FIXO.crystalsPerBatch;
-            const metaProduced = crystalsProduced / FIXO.crystalsPerProcess * FIXO.metaPerProcess;
+            const lsdProduced = crystalsProduced / FIXO.crystalsPerProcess * FIXO.lsdPerProcess;
             
             let itemMatsHTML = '';
             if (mat0) itemMatsHTML += `<div class="mat-item-tiny"><span>${CONFIG.MAT_NAMES[0]}:</span> <b>${mat0}</b></div>`;
@@ -325,7 +325,7 @@ const app = {
             if (mat2) itemMatsHTML += `<div class="mat-item-tiny"><span>${CONFIG.MAT_NAMES[2]}:</span> <b>${mat2}</b></div>`;
             itemMatsHTML += `<div class="mat-item-tiny"><span>Ziplock:</span> <b>${ziplocks}</b></div>`;
             itemMatsHTML += `<div class="mat-item-tiny"><span>Cristais:</span> <b>${crystalsProduced}</b></div>`;
-            itemMatsHTML += `<div class="mat-item-tiny"><span>Meta:</span> <b>${Math.floor(metaProduced)}</b></div>`;
+            itemMatsHTML += `<div class="mat-item-tiny"><span>Lsd:</span> <b>${Math.floor(lsdProduced)}</b></div>`;
             
             detailsHTML += `
             <div class="detail-card-small">
