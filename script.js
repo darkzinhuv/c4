@@ -402,7 +402,7 @@ const app = {
         const color = resultado === 'Vitória' ? 3066993 : 15158332;
 
         const embedMainAcao = {
-            username: "THE CREW AÇÕES",
+            username: "C4 AÇÕES",
             embeds: [{
                 title: `⚔️ Registro de Ação: ${tipo}`,
                 color: color,
@@ -424,7 +424,7 @@ const app = {
         // 2. Envio Log Resumido
         if (CONFIG.WEBHOOKS.LOGS_ACOES) {
             const embedLogAcao = {
-                username: "THE CREW AÇÕES",
+                username: "C4 AÇÕES",
                 embeds: [{
                     color: color,
                     description: `**Ação:** ${tipo}\n**Data:** ${dataF}\n**Hora:** ${hora}\n**Motivo:** Ação Blipada\n**Resultado:** ${resultado}`
@@ -464,7 +464,7 @@ const app = {
         const itensFormatados = vendaData.itens.map(i => `• ${i.name} — ${i.qtd}x — R$ ${i.total.toLocaleString('pt-BR')}`).join('\n');
 
         const embedVenda = {
-            username: "THE CREW VENDAS",
+            username: "C4 VENDAS",
             embeds: [{
                 title: "📄 Venda Registrada",
                 color: 5644438,
@@ -490,7 +490,7 @@ const app = {
             const dataFormatada = this.formatDate(dataInput);
             
             const embedLogVenda = {
-                username: "THE CREW VENDAS Log",
+                username: "C4 VENDAS Log",
                 embeds: [{
                     color: 5644438,
                     description: `**Comprador:** ${vendaData.faccao}\n**Produtos:**\n${itensList}\n**Data:** ${dataFormatada}\n**Horário:** ${horaInput}`
